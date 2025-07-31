@@ -196,7 +196,7 @@ export default function Home() {
                   replacement={{ _: /\d/ }}
                   id="value"
                   placeholder={getPlaceholder()}
-                  className={`w-full focus:border- ${errors.value ? "p-invalid" : ""}`}
+                  className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
                   ref={inputRef}
                   {...register("value")}
                   data-cy="search-input"
@@ -209,17 +209,17 @@ export default function Home() {
                   replacement={{ _: /\d/ }}
                   id="value"
                   placeholder={getPlaceholder()}
-                  className={`w-full ${errors.value ? "p-invalid" : ""}`}
+                  className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
                   ref={inputRef}
                   {...register("value")}
                   data-cy="search-input"
                 />
               )}
               {searchType !== "cpf/cnpj" && searchType !== "telefone" && (
-                <InputText
+                <input
                   id="value"
                   placeholder={getPlaceholder()}
-                  className={`w-full ${errors.value ? "p-invalid" : ""}`}
+                  className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
                   {...register("value")}
                   data-cy="search-input"
                 />

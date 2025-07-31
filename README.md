@@ -1,21 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Consulta de Dados Básicos - Projeto de Investigação
 
-## Getting Started
 
-First, run the development server:
+O **Consulta de Dados Básicos** é uma aplicação web desenvolvida para profissionais de investigação, permitindo a busca rápida e eficiente de informações essenciais sobre indivíduos ou empresas através de diversos critérios de pesquisa.
 
+## ✨ Funcionalidades Principais
+
+- 🔍 Pesquisa por múltiplos critérios: CPF/CNPJ, email, telefone, endereço ou nome
+- ⏳ Histórico de buscas recentes
+- 👁️‍🗨️ Visualização de entidades pesquisadas recentemente
+- 📊 Exibição detalhada de informações de entidades
+- ✅ Validação robusta de dados de entrada
+- 🎨 Interface intuitiva e responsiva
+
+## 🛠️ Tecnologias Utilizadas
+
+### Frontend
+| Tecnologia | Descrição | Badge |
+|------------|-----------|-------|
+| **Next.js** | Framework React para renderização server-side | ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) |
+| **React** | Biblioteca JavaScript para construção de interfaces | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) |
+| **TypeScript** | Superset JavaScript com tipagem estática | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) |
+| **PrimeReact** | Biblioteca de componentes UI | ![PrimeReact](https://img.shields.io/badge/PrimeReact-1D1D1D?style=for-the-badge&logo=react&logoColor=61DAFB) |
+| **Styled Components** | Biblioteca para CSS-in-JS | ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) |
+| **Zod** | Biblioteca para validação de esquemas | ![Zod](https://img.shields.io/badge/Zod-1D1D1D?style=for-the-badge) |
+| **React Hook Form** | Biblioteca para gerenciamento de formulários | ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=for-the-badge&logo=react-hook-form&logoColor=white) |
+| **Cypress** | Framework para testes end-to-end | ![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white) |
+| **React Query** | Biblioteca para gerenciamento de estado do servidor | ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white) |
+
+
+### Outras Bibliotecas
+- `@react-input/mask` - Para máscaras de entrada de dados
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- Node.js (v18 ou superior)
+- npm (v9 ou superior) ou yarn (v1.22 ou superior)
+
+### Passo a Passo
+
+1. **Clonar o repositório:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/NHDrizzt/leme-project.git
+cd leme-project
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instalar as dependências:**
+```bash
+npm install
+# ou
+yarn install
+```
 
-Disclamer:
- Foi utilizando Nextjs como base para o projeto pensando em um overengeneering por trazer mais funcionalidades, ele serve como uma boa base para projetos maiores e mais complexos.
+3. **Executar o servidor de desenvolvimento:**
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+4. **Acessar a aplicação:**
+Abra o navegador e acesse `http://localhost:3000`
+
+
+## 🔬 Testes
+
+### Executar os testes
+```bash
+npm run cypress:open
+# ou
+yarn cypress:open
+```
+
+## Estrutura do Projeto
+
+```
+consulta-dados-basicos/
+├── app/
+│   ├── page.tsx             # Página principal
+│   └── results/
+│       └── page.tsx         # Página de resultados
+├── components/
+│   ├── EntityDetailsModal/  # Modal de detalhes da entidade
+│   └── ...                  # Outros componentes
+├── hooks/
+│   └── useRecentSearch.ts   # Hook para gerenciar buscas recentes
+├── schema/
+│   └── searchSchema.ts      # Esquemas de validação Zod
+├── mocks/
+│   └── data.ts              # Dados mockados para desenvolvimento
+├── public/                  # Assets estáticos
+├── cypress/                 # Diretório de testes end-to-end
+└── ...                      # Outros arquivos de configuração
+```
+
 
