@@ -1,6 +1,7 @@
 import { Dialog } from "primereact/dialog";
 import { Entity } from "@/mocks/data";
 import styled from "styled-components";
+import { Button } from "primereact/button";
 
 const ModalContainer = styled.div`
   .p-dialog-content {
@@ -52,7 +53,18 @@ const EntityDetailsModal = ({
       onHide={onClose}
       header={`Detalhes da entidade: ${entity?.name}`}
       className="w-full max-w-3xl"
+      data-cy="entity-details-modal"
+      closable={false}
     >
+      <div className="absolute top-2 right-2">
+        <Button
+          icon="pi pi-times"
+          className="p-button-text p-button-rounded p-button-sm"
+          onClick={onClose}
+          data-cy="close-modal-button"
+          aria-label="Fechar"
+        />
+      </div>
       <ModalContainer>
         {entity && (
           <div>
@@ -60,11 +72,11 @@ const EntityDetailsModal = ({
               <SectionTitle>Informações Básicas</SectionTitle>
               <Field>
                 <label>Nome</label>
-                <p>{entity.name}</p>
+                <p data-cy="entity-name">{entity.name}</p>
               </Field>
               <Field>
                 <label>{entity.type === "individual" ? "CPF" : "CNPJ"}</label>
-                <p>{entity.document}</p>
+                <p data-cy="entity-document">{entity.document}</p>
               </Field>
 
               {entity.type === "individual" && (

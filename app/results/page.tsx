@@ -172,7 +172,7 @@ export default function ResultsPage() {
             paginator
             rows={10}
             itemTemplate={(entity) => (
-              <div className="pb-2">
+              <div className="pb-2" data-cy="entity-row">
                 <div className="flex flex-column md:flex-row align-items-center p-3 border-1 surface-border border-round">
                   <div className="flex-1 flex flex-column md:flex-row align-items-center">
                     <div className="mr-3 my-auto   text-2xl">
@@ -193,6 +193,7 @@ export default function ResultsPage() {
                       icon="pi pi-eye"
                       className="p-button-outlined"
                       onClick={() => handleViewDetails(entity)}
+                      data-cy="view-details-button"
                     />
                   </div>
                 </div>

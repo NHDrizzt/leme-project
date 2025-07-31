@@ -41,8 +41,12 @@ const telefoneSchema = z
     },
   );
 
-const enderecoSchema = z.string().min(1, "Endereço é obrigatório");
-
+const enderecoSchema = z
+  .string()
+  .min(1, "Endereço é obrigatório")
+  .refine((val) => val.trim().length > 0, {
+    message: "Endereço é obrigatório",
+  });
 const nomeSchema = z
   .string()
   .min(3, "Nome deve ter pelo menos 3 caracteres")
