@@ -93,3 +93,5 @@ consulta-dados-basicos/
 ├── cypress/                 # Diretório de testes end-to-end
 └── ...                      # Outros arquivos de configuração
 ```
+
+

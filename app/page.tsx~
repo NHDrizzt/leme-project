@@ -1,28 +1,23 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { Dropdown } from "primereact/dropdown";
-import { InputText } from "primereact/inputtext";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useRouter } from "next/navigation";
 import { useRecentSearches } from "@/hooks/useRecentSearch";
 import { InputMask } from "@react-input/mask";
 
-import {
-  searchTypeSchema,
-  SearchType,
-  getSearchSchema,
-} from "@/schema/searchSchema";
+import { searchTypeSchema, getSearchSchema } from "@/schema/searchSchema";
 import { z } from "zod";
-import { useMask } from "@react-input/mask";
 import styled from "styled-components";
 import { Entity } from "@/mocks/data";
 import EntityDetailsModal from "@/components/EntityDetailsModal";
+import { useSearchContext } from "@/context/SearchContext";
 
 const formSchema = z.object({
   type: searchTypeSchema,
@@ -66,6 +61,7 @@ export default function Home() {
   const router = useRouter();
   const { recentSearches, addSearch } = useRecentSearches();
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
+  const { setSearchParams } = useSearchContext();
 
   const {
     register,
@@ -83,28 +79,6 @@ export default function Home() {
   });
 
   const searchType = watch("type");
-
-  function getMaskForType(type: SearchType): string {
-    switch (type) {
-      case "cpf/cnpj":
-        return "___.___.___-__ / __.___.___/____-__";
-      case "telefone":
-        return "(__) ____-____ / (__) _____-____";
-      default:
-        return "";
-    }
-  }
-
-  function getReplacementForType(type: SearchType): Record<string, RegExp> {
-    switch (type) {
-      case "cpf/cnpj":
-        return { _: /\d/ };
-      case "telefone":
-        return { _: /\d/ };
-      default:
-        return {};
-    }
-  }
 
   const getPlaceholder = () => {
     switch (searchType) {
@@ -127,14 +101,6 @@ export default function Home() {
     setValue("value", "");
   }, [searchType]);
 
-  const mask = getMaskForType(searchType);
-  const replacement = getReplacementForType(searchType);
-
-  const inputRef = useMask({
-    mask,
-    replacement,
-  });
-
   const onSubmit = (data: FormValues) => {
     const valueSchema = getSearchSchema(data.type);
     const validationResult = valueSchema.safeParse(data.value);
@@ -154,9 +120,12 @@ export default function Home() {
       timestamp: new Date().toISOString(),
     });
 
-    router.push(
-      `/results?type=${data.type}&value=${encodeURIComponent(data.value)}`,
-    );
+    setSearchParams({
+      type: data.type,
+      value: data.value,
+    });
+
+    router.push(`/results}`);
   };
 
   return (
@@ -197,7 +166,6 @@ export default function Home() {
                   id="value"
                   placeholder={getPlaceholder()}
                   className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
-                  ref={inputRef}
                   {...register("value")}
                   data-cy="search-input"
                 />
@@ -210,7 +178,6 @@ export default function Home() {
                   id="value"
                   placeholder={getPlaceholder()}
                   className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
-                  ref={inputRef}
                   {...register("value")}
                   data-cy="search-input"
                 />
@@ -220,7 +187,6 @@ export default function Home() {
                   id="value"
                   placeholder={getPlaceholder()}
                   className={`w-full focus:outline-[#3b82f6] min-w-[200px] border-1 rounded-sm min-h-[48px] p-2 focus:border-[#3b82f6] ${errors.value ? "p-invalid" : ""}`}
-
                   {...register("value")}
                   data-cy="search-input"
                 />

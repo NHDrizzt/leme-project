@@ -12,6 +12,7 @@ import { MultiSelect } from "primereact/multiselect";
 import styled from "styled-components";
 import EntityDetailsModal from "@/components/EntityDetailsModal";
 import { useRecentSearches } from "@/hooks/useRecentSearch";
+import { useSearchContext } from "@/context/SearchContext";
 const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -45,11 +46,10 @@ const EmptyResults = styled.div`
 `;
 
 export default function ResultsPage() {
-  const searchParams = useSearchParams();
-  const { addSearch } = useRecentSearches();
-  const type = searchParams.get("type") as any;
-  const value = searchParams.get("value") as string;
+  const { searchParams } = useSearchContext();
+  const { type, value } = searchParams;
 
+  const { addSearch } = useRecentSearches();
   const { data, isLoading, isError } = useSearch({ type, value });
 
   const [layout, setLayout] = useState<"list" | "grid">("list");
@@ -150,11 +150,11 @@ export default function ResultsPage() {
           className="w-full md:w-20rem"
         />
         <div className={`flex items-center gap-2`}>
-          <DataViewLayoutOptions
-            className={"flex max-w-[108px] max-h-[60px]"}
-            layout={layout}
-            onChange={(e) => setLayout(e.value)}
-          />
+          {/*<DataViewLayoutOptions*/}
+          {/*  className={"flex max-w-[108px] max-h-[60px]"}*/}
+          {/*  layout={layout}*/}
+          {/*  onChange={(e) => setLayout(e.value)}*/}
+          {/*/>*/}
         </div>
       </FiltersContainer>
 

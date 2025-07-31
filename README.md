@@ -26,6 +26,7 @@ O **Consulta de Dados Básicos** é uma aplicação web desenvolvida para profis
 | **React Hook Form** | Biblioteca para gerenciamento de formulários | ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=for-the-badge&logo=react-hook-form&logoColor=white) |
 | **Cypress** | Framework para testes end-to-end | ![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white) |
 | **React Query** | Biblioteca para gerenciamento de estado do servidor | ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white) |
+| **React Context API** | Gerenciamento de estado global para parâmetros de busca | ![React](https://img.shields.io/badge/React_Context-61DAFB?style=for-the-badge&logo=react&logoColor=white) |
 
 
 ### Outras Bibliotecas

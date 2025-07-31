@@ -7,6 +7,7 @@ import "primeicons/primeicons.css";
 import type { Metadata } from "next";
 import StyledComponentsRegistry from "@/lib/registry";
 import QueryProvider from "@/providers/providers";
+import { SearchProvider } from "@/context/SearchContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +35,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <StyledComponentsRegistry>
-            <PrimeReactProvider>{children}</PrimeReactProvider>
-          </StyledComponentsRegistry>
+          <SearchProvider>
+            <StyledComponentsRegistry>
+              <PrimeReactProvider>{children}</PrimeReactProvider>
+            </StyledComponentsRegistry>
+          </SearchProvider>
         </QueryProvider>
       </body>
     </html>

@@ -9,7 +9,7 @@ export type SearchType =
   | "nome";
 
 interface SearchParams {
-  type: string;
+  type: SearchType;
   value: string;
 }
 
