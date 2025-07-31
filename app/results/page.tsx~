@@ -10,7 +10,8 @@ import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import { FilterMatchMode } from "primereact/api";
 import { MultiSelect } from "primereact/multiselect";
 import styled from "styled-components";
-
+import EntityDetailsModal from "@/components/EntityDetailsModal";
+import { useRecentSearches } from "@/hooks/useRecentSearch";
 const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -45,6 +46,7 @@ const EmptyResults = styled.div`
 
 export default function ResultsPage() {
   const searchParams = useSearchParams();
+  const { addSearch } = useRecentSearches();
   const type = searchParams.get("type") as any;
   const value = searchParams.get("value") as string;
 
@@ -74,6 +76,12 @@ export default function ResultsPage() {
 
   const handleViewDetails = (entity: Entity) => {
     setSelectedEntity(entity);
+    addSearch({
+      type: "detalhes",
+      value: entity.document,
+      timestamp: new Date().toISOString(),
+      entity: entity,
+    });
   };
 
   if (isLoading) {
@@ -179,14 +187,6 @@ export default function ResultsPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-2 md:mt-0">
-                    <Button
-                      label="Ver detalhes"
-                      icon="pi pi-eye"
-                      className="p-button-outlined"
-                      onClick={() => handleViewDetails(entity)}
-                    />
-                  </div>
                 </div>
               </div>
             )}
@@ -194,12 +194,12 @@ export default function ResultsPage() {
         )}
       </Card>
 
-      {/*{selectedEntity && (*/}
-      {/*  <EntityDetailsModal*/}
-      {/*    entity={selectedEntity}*/}
-      {/*    onClose={() => setSelectedEntity(null)}*/}
-      {/*  />*/}
-      {/*)}*/}
+      {selectedEntity && (
+        <EntityDetailsModal
+          entity={selectedEntity}
+          onClose={() => setSelectedEntity(null)}
+        />
+      )}
     </PageContainer>
   );
 }

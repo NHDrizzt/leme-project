@@ -1,0 +1,50 @@
+// "use client";
+// import { useState, useEffect } from "react";
+// import { Entity } from "@/mocks/data";
+//
+// export type RecentVisualization = {
+//   id: string;
+//   type: string;
+//   value: string;
+//   timestamp: string;
+//   entity?: Entity;
+// };
+//
+// const RECENT_VISUALIZATION_KEY = "recentVisualization";
+//
+// export const useRecentVisualization = () => {
+//   const [recentVisualization, setRecentVisualization] = useState<
+//     RecentVisualization[]
+//   >([]);
+//
+//   useEffect(() => {
+//     const storedSearches = localStorage.getItem(RECENT_VISUALIZATION_KEY);
+//     if (storedSearches) {
+//       try {
+//         setRecentVisualization(JSON.parse(storedSearches));
+//       } catch (e) {
+//         console.error("Failed to parse recent searches", e);
+//       }
+//     }
+//   }, []);
+//
+//   const saveSearches = (searches: RecentVisualization[]) => {
+//     setRecentVisualization(searches);
+//     localStorage.setItem(RECENT_VISUALIZATION_KEY, JSON.stringify(searches));
+//   };
+//
+//   const addEntity = (search: Omit<RecentVisualization, "id">) => {
+//     const newEntity = {
+//       ...search,
+//       id: Date.now().toString(),
+//     };
+//
+//     const updatedEntities = [newEntity, ...recentVisualization].slice(0, 10);
+//     saveSearches(updatedEntities);
+//   };
+//
+//   return {
+//     recentEntitiesSearched: recentVisualization,
+//     addEntity,
+//   };
+// };

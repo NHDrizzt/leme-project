@@ -20,6 +20,7 @@ import { z } from "zod";
 import { useMask } from "@react-input/mask";
 import styled from "styled-components";
 import { Entity } from "@/mocks/data";
+import EntityDetailsModal from "@/components/EntityDetailsModal";
 
 const formSchema = z.object({
   type: searchTypeSchema,
@@ -62,6 +63,7 @@ const RecentSearchesCard = styled(Card)``;
 export default function Home() {
   const router = useRouter();
   const { recentSearches, addSearch } = useRecentSearches();
+  const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
 
   const {
     register,
@@ -216,7 +218,48 @@ export default function Home() {
         </form>
       </SearchCard>
 
-      <RecentSearchesCard title="Resultados recentes">
+      <RecentSearchesCard title="Entidades Visualizadas Recentemente">
+        <DataTable
+          value={recentSearches.filter((search) => search.entity)}
+          rows={10}
+          paginator
+        >
+          <Column header="Nome" body={(row) => row.entity?.name || row.value} />
+          <Column
+            header="Documento"
+            body={(row) => row.entity?.document || row.value}
+          />
+          <Column
+            field="type"
+            header="Tipo"
+            body={(row) =>
+              searchOptions.find((opt) => opt.value === row.type)?.label ||
+              (row.entity?.type === "individual" ? "Pessoa" : "Empresa")
+            }
+          />
+          <Column
+            field="timestamp"
+            header="Visualizado em"
+            body={(row) => new Date(row.timestamp).toLocaleString()}
+          />
+          <Column
+            body={(row) => (
+              <Button
+                label="Ver detalhes"
+                icon="pi pi-eye"
+                className="p-button-outlined p-button-sm"
+                onClick={() => {
+                  if (row.entity) {
+                    setSelectedEntity(row.entity);
+                  }
+                }}
+              />
+            )}
+          />
+        </DataTable>
+      </RecentSearchesCard>
+
+      <RecentSearchesCard title="Resultados pesquisados recentes">
         <DataTable value={recentSearches} rows={10} paginator>
           <Column field="value" header="Termo" />
           <Column
@@ -232,18 +275,15 @@ export default function Home() {
             header="Data"
             body={(row) => new Date(row.timestamp).toLocaleString()}
           />
-          <Column
-            body={(row) => (
-              <Button
-                label="Ver detalhes"
-                icon="pi pi-eye"
-                className="p-button-outlined p-button-sm"
-                onClick={() => handleViewDetails(row.entity)}
-              />
-            )}
-          />
         </DataTable>
       </RecentSearchesCard>
+
+      {selectedEntity && (
+        <EntityDetailsModal
+          entity={selectedEntity}
+          onClose={() => setSelectedEntity(null)}
+        />
+      )}
     </PageContainer>
   );
 }
