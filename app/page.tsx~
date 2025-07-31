@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client"; // Marque como componente de cliente para usar hooks
 
 import { useQuery } from "@tanstack/react-query";

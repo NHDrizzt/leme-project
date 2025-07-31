@@ -1,0 +1,11 @@
+import { z } from "zod";
+import type { FieldErrors } from "react-hook-form";
+
+export const createSchema = <T extends z.ZodTypeAny>(schema: T) => schema;
+
+export const formatErrors = (errors: FieldErrors) => {
+  return Object.entries(errors).map(([name, error]) => ({
+    name,
+    message: error?.message || "Campo inválido",
+  }));
+};
