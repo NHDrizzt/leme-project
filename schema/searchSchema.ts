@@ -64,3 +64,20 @@ export const getSearchSchema = (type: SearchType) => {
       return z.string();
   }
 };
+
+const formSchema = z
+  .object({
+    type: searchTypeSchema,
+    value: z.string(),
+  })
+  .superRefine((data, ctx) => {
+    const valueSchema = getSearchSchema(data.type);
+    const result = valueSchema.safeParse(data.value);
+    if (!result.success) {
+      ctx.addIssue({
+        path: ["value"],
+        code: z.ZodIssueCode.custom,
+        message: result.error.issues[0].message,
+      });
+    }
+  });

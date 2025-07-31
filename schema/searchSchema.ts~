@@ -20,7 +20,7 @@ const cpfCnpjSchema = z
     },
     {
       message: "CPF deve ter 11 dígitos ou CNPJ 14 dígitos",
-    }
+    },
   );
 
 const emailSchema = z
@@ -38,7 +38,7 @@ const telefoneSchema = z
     },
     {
       message: "Telefone deve ter 10 ou 11 dígitos",
-    }
+    },
   );
 
 const enderecoSchema = z.string().min(1, "Endereço é obrigatório");

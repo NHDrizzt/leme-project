@@ -193,7 +193,7 @@ export default function Home() {
                 id="value"
                 placeholder={getPlaceholder()}
                 className={`w-full ${errors.value ? "p-invalid" : ""}`}
-                ref={inputRef}
+                // ref={inputRef}
                 {...register("value")}
               />
               {errors.value && (
