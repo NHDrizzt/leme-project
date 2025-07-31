@@ -78,6 +78,34 @@ export const generateMockData = (): Entity[] => {
     {
       id: uuidv4(),
       type: "individual",
+      name: "João Carlos",
+      document: "123.456.789-01",
+      gender: "Masculino",
+      birthDate: "15/05/1980",
+      motherName: "Maria Silva",
+      phones: [
+        { type: "Celular", number: "(11) 98765-4321" },
+        { type: "Residencial", number: "(11) 3456-7890" },
+      ],
+      emails: [
+        { address: "joao.silva@gmail.com" },
+        { address: "joao.silva@empresa.com.br" },
+      ],
+      addresses: [
+        {
+          street: "Rua das Flores",
+          number: "100",
+          complement: "Apto 101",
+          neighborhood: "Centro",
+          city: "São Paulo",
+          state: "SP",
+          zipCode: "01001-000",
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      type: "individual",
       name: "Maria Oliveira",
       document: "987.654.321-09",
       gender: "Feminino",

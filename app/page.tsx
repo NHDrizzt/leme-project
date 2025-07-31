@@ -149,6 +149,10 @@ export default function Home() {
       value: data.value,
       timestamp: new Date().toISOString(),
     });
+
+    router.push(
+      `/results?type=${data.type}&value=${encodeURIComponent(data.value)}`,
+    );
   };
 
   const handleViewDetails = (entity: Entity) => {
