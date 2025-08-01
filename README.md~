@@ -98,8 +98,7 @@ consulta-dados-basicos/
 
 
 ## Deploy
-
-O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `http://localhost:3000`
+Essa e a versao 2.0 do projeto, com o objetivo de criar uma aplicação funcional e intuitiva para consulta de dados básicos. O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `https://leme-project.vercel.app/`
 
 
 

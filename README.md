@@ -7,6 +7,7 @@ O **Consulta de Dados Básicos** é uma aplicação web desenvolvida para profis
 
 - 🔍 Pesquisa por múltiplos critérios: CPF/CNPJ, email, telefone, endereço ou nome
 - ⏳ Histórico de buscas recentes
+- 📑 Busca preditiva com sugestões automáticas
 - 👁️‍🗨️ Visualização de entidades pesquisadas recentemente
 - 📊 Exibição detalhada de informações de entidades
 - ✅ Validação robusta de dados de entrada
@@ -98,7 +99,7 @@ consulta-dados-basicos/
 
 
 ## Deploy
-Essa e a versao 1.0 do projeto que durou 8 horas de desenvolvimento, com o objetivo de criar uma aplicação funcional e intuitiva para consulta de dados básicos. O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `https://leme-project.vercel.app/`
+Essa e a versao 2.0 do projeto, com o objetivo de criar uma aplicação funcional e intuitiva para consulta de dados básicos. O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `https://leme-project.vercel.app/`
 
 
 
