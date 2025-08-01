@@ -54,9 +54,8 @@ const EntityDetailsModal = ({
       header={`Detalhes da entidade: ${entity?.name}`}
       className="w-full max-w-3xl"
       data-cy="entity-details-modal"
-      closable={false} // Disable the default close button
+      closable={false}
     >
-      {/* Your custom close button */}
       <div className="absolute top-2 right-2">
         <Button
           icon="pi pi-times"
@@ -136,7 +135,7 @@ const EntityDetailsModal = ({
                   ))}
                 </div>
                 <div>
-                  <h4 className="font-medium mb-2">Emails</h4>
+                  <h4 className="font-medium mb-2">Email</h4>
                   {entity.emails.map((email, index) => (
                     <div key={index} className="mb-1">
                       {email.address}

@@ -124,7 +124,7 @@ export default function ResultsPage() {
     <PageContainer>
       <Button
         icon="pi pi-arrow-left"
-        className="mb-4 !border-[#E15C3A] !bg-[#E15C3A] hover:!bg-[#c94b2a] hover:!text-white"
+        className="mb-4 !border-[#E15C3A] hover:!bg-[#c94b2a] hover:!text-white"
         aria-label="Voltar"
         style={{ marginBottom: "1rem" }}
         tooltip="Voltar para a página inicial"

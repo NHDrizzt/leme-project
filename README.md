@@ -92,7 +92,13 @@ consulta-dados-basicos/
 │   └── data.ts              # Dados mockados para desenvolvimento
 ├── public/                  # Assets estáticos
 ├── cypress/                 # Diretório de testes end-to-end
+├── context/                 # Contexto para gerenciamento de estado global
 └── ...                      # Outros arquivos de configuração
 ```
+
+
+## Deploy
+Essa e a versao 1.0 do projeto que durou 8 horas de desenvolvimento, com o objetivo de criar uma aplicação funcional e intuitiva para consulta de dados básicos. O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `https://leme-project.vercel.app/`
+
 
 

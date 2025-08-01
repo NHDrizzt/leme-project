@@ -33,12 +33,14 @@ export const useRecentSearches = () => {
   const addSearch = (search: Omit<RecentSearch, "id">) => {
     const now = new Date().toISOString();
 
+    // Check if search exists and update its timestamp
     const updatedSearches = recentSearches.map((s) =>
       s.type === search.type && s.value === search.value
         ? { ...s, timestamp: now }
         : s,
     );
 
+    // If it didn't exist, add new search
     if (
       !recentSearches.some(
         (s) => s.type === search.type && s.value === search.value,
@@ -51,6 +53,7 @@ export const useRecentSearches = () => {
       });
     }
 
+    // Keep only the 10 most recent searches
     const limitedSearches = updatedSearches.slice(0, 10);
     saveSearches(limitedSearches);
   };

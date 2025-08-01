@@ -8,15 +8,18 @@ import type { Metadata } from "next";
 import StyledComponentsRegistry from "@/lib/registry";
 import QueryProvider from "@/providers/providers";
 import { SearchProvider } from "@/context/SearchContext";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +40,10 @@ export default function RootLayout({
         <QueryProvider>
           <SearchProvider>
             <StyledComponentsRegistry>
-              <PrimeReactProvider>{children}</PrimeReactProvider>
+              <PrimeReactProvider>
+                <Header />
+                {children}
+              </PrimeReactProvider>
             </StyledComponentsRegistry>
           </SearchProvider>
         </QueryProvider>
