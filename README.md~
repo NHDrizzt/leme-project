@@ -7,6 +7,7 @@ O **Consulta de Dados Básicos** é uma aplicação web desenvolvida para profis
 
 - 🔍 Pesquisa por múltiplos critérios: CPF/CNPJ, email, telefone, endereço ou nome
 - ⏳ Histórico de buscas recentes
+- 📑 Busca preditiva com sugestões automáticas
 - 👁️‍🗨️ Visualização de entidades pesquisadas recentemente
 - 📊 Exibição detalhada de informações de entidades
 - ✅ Validação robusta de dados de entrada

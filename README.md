@@ -98,6 +98,25 @@ consulta-dados-basicos/
 ```
 
 
+## 🧠 Tomadas de Decisão
+- **Escolha do Next.js**: Optei pela versão App Router para aproveitar:
+    - Streaming Server Rendering
+    - Layouts aninhados
+    - Suporte a React 18+
+    - Melhor performance com renderização incremental 
+    - Experiência de desenvolvimento aprimorada
+    - Suporte a TypeScript nativo
+    - Melhor gerenciamento de rotas
+- **Gestão de Estado**: Context API foi escolhido por ser nativo e suficiente para o escopo
+- **Validação de Dados**: Zod foi utilizado para garantir a integridade dos dados de entrada
+- **Testes**: Cypress foi escolhido para testes end-to-end, garantindo a funcionalidade da aplicação
+- **Estilização**: Styled Components para CSS-in-JS, permitindo estilos dinâmicos e reutilizáveis e Tailwind CSS para uma abordagem utilitária de estilização
+- **Componentes UI**: PrimeReact para componentes prontos e estilizados, acelerando o desenvolvimento da interface
+- **Gerenciamento de Formulários**: React Hook Form para simplificar o gerenciamento de formulários e validação
+- **Máscaras de Entrada**: `@react-input/mask` para facilitar a entrada de dados formatados (CPF/CNPJ, telefone, etc.)
+- **React Query**: Utilizado para otimizar as requisições de dados e o gerenciamento do estado do servidor, melhorando a performance da aplicação
+
+
 ## Deploy
 Essa e a versao 2.0 do projeto, com o objetivo de criar uma aplicação funcional e intuitiva para consulta de dados básicos. O projeto está hospedado no Vercel, permitindo acesso fácil e rápido à aplicação. Acesse a versão em produção através do seguinte link: `https://leme-project.vercel.app/`
 
