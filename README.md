@@ -74,6 +74,17 @@ npm run cypress:open
 yarn cypress:open
 ```
 
+1. **Executar os testes end-to-end:**
+   - O Cypress abrirá uma janela onde você pode selecionar os testes a serem executados.
+   - Selecione os testes desejados e acompanhe a execução.
+   - Os testes estão localizados em `cypress/e2e/`.
+
+## 📦 Dados Mockados:
+   - Os dados mockados para desenvolvimento estão localizados em `mocks/data.ts`.
+   - Esses dados são utilizados para simular respostas da API durante o desenvolvimento e testes.
+   - Você pode acessar esses dados diretamente no código para verificar a funcionalidade da aplicação sem depender de uma API externa.
+
+
 ## Estrutura do Projeto
 
 ```

@@ -74,6 +74,16 @@ npm run cypress:open
 yarn cypress:open
 ```
 
+1. **Executar os testes end-to-end:**
+   - O Cypress abrirá uma janela onde você pode selecionar os testes a serem executados.
+   - Selecione os testes desejados e acompanhe a execução.
+   - Os testes estão localizados em `cypress/e2e/`.
+
+## 📦 Dados Mockados:
+   - Os dados mockados para desenvolvimento estão localizados em `mocks/data.ts`.
+   - Esses dados são utilizados para simular respostas da API durante o desenvolvimento e testes.
+   - Você pode acessar esses dados diretamente no código para verificar a funcionalidade da aplicação sem depender de uma API externa.
+
 ## Estrutura do Projeto
 
 ```
@@ -96,6 +106,25 @@ consulta-dados-basicos/
 ├── context/                 # Contexto para gerenciamento de estado global
 └── ...                      # Outros arquivos de configuração
 ```
+
+
+## 🧠 Tomadas de Decisão
+- **Escolha do Next.js**: Optei pela versão App Router para aproveitar:
+    - Streaming Server Rendering
+    - Layouts aninhados
+    - Suporte a React 18+
+    - Melhor performance com renderização incremental 
+    - Experiência de desenvolvimento aprimorada
+    - Suporte a TypeScript nativo
+    - Melhor gerenciamento de rotas
+- **Gestão de Estado**: Context API foi escolhido por ser nativo e suficiente para o escopo
+- **Validação de Dados**: Zod foi utilizado para garantir a integridade dos dados de entrada
+- **Testes**: Cypress foi escolhido para testes end-to-end, garantindo a funcionalidade da aplicação
+- **Estilização**: Styled Components para CSS-in-JS, permitindo estilos dinâmicos e reutilizáveis e Tailwind CSS para uma abordagem utilitária de estilização
+- **Componentes UI**: PrimeReact para componentes prontos e estilizados, acelerando o desenvolvimento da interface
+- **Gerenciamento de Formulários**: React Hook Form para simplificar o gerenciamento de formulários e validação
+- **Máscaras de Entrada**: `@react-input/mask` para facilitar a entrada de dados formatados (CPF/CNPJ, telefone, etc.)
+- **React Query**: Utilizado para otimizar as requisições de dados e o gerenciamento do estado do servidor, melhorando a performance da aplicação
 
 
 ## Deploy
