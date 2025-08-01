@@ -159,7 +159,6 @@ describe("Search Validation", () => {
         { value: "", error: "Telefone é obrigatório" },
         { value: "123", error: "Telefone deve ter 10 ou 11 dígitos" },
         { value: "123456789", error: "Telefone deve ter 10 ou 11 dígitos" },
-        { value: "123456789012", error: "Telefone deve ter 10 ou 11 dígitos" },
       ],
       validInputs: ["(11) 9123-4567", "11912345678", "(21) 3456-7890"],
     },

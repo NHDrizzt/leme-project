@@ -18,7 +18,6 @@ import { Entity, mockEntities } from "@/mocks/data";
 import EntityDetailsModal from "@/components/EntityDetailsModal";
 import { useSearchContext } from "@/context/SearchContext";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
-import { useSearch } from "@/hooks/useSearch";
 
 const formSchema = z.object({
   type: searchTypeSchema,
@@ -26,14 +25,6 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
-
-export const searchOptions = [
-  { label: "CPF/CNPJ", value: "cpf/cnpj" },
-  { label: "Email", value: "email" },
-  { label: "Telefone", value: "telefone" },
-  { label: "Endereço", value: "endereço" },
-  { label: "Nome", value: "nome" },
-];
 
 const PageContainer = styled.div`
   max-width: 1200px;
@@ -89,6 +80,14 @@ const PredictiveItem = styled.div`
     color: #6b7280;
   }
 `;
+
+const searchOptions = [
+  { label: "CPF/CNPJ", value: "cpf/cnpj" },
+  { label: "Email", value: "email" },
+  { label: "Telefone", value: "telefone" },
+  { label: "Endereço", value: "endereço" },
+  { label: "Nome", value: "nome" },
+];
 
 export default function Home() {
   const router = useRouter();

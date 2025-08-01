@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
 import { Entity, EntityType } from "@/mocks/data";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { DataView, DataViewLayoutOptions } from "primereact/dataview";
+import { DataView } from "primereact/dataview";
 import { FilterMatchMode } from "primereact/api";
 import { MultiSelect } from "primereact/multiselect";
 import styled from "styled-components";
@@ -53,8 +52,6 @@ export default function ResultsPage() {
 
   const { addSearch } = useRecentSearches();
   const { data, isLoading, isError } = useSearch({ type, value });
-
-  const [layout, setLayout] = useState<"list" | "grid">("list");
   const [filters, setFilters] = useState({
     types: { value: ["individual", "company"], matchMode: FilterMatchMode.IN },
   });
@@ -166,7 +163,7 @@ export default function ResultsPage() {
         ) : (
           <DataView
             value={filteredEntities}
-            layout={layout}
+            layout={"list"}
             paginator
             rows={10}
             itemTemplate={(entity) => (

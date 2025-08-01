@@ -4,7 +4,6 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import styled from "styled-components";
 import { Card } from "primereact/card";
-import { useSearchContext } from "@/context/SearchContext";
 import { useRecentSearches } from "@/hooks/useRecentSearch";
 import { searchOptions } from "@/app/page";
 
@@ -14,7 +13,7 @@ const Page = () => {
   const { recentSearches } = useRecentSearches();
 
   return (
-    <div>
+    <div className={"max-w-6xl mx-auto p-4"}>
       <RecentSearchesCard title="Últimas 10 pesquisas realizadas">
         <DataTable value={recentSearches}>
           <Column field="value" header="Termo" />

@@ -4,10 +4,14 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import styled from "styled-components";
 import { Card } from "primereact/card";
-import { useSearchContext } from "@/context/SearchContext";
 import { useRecentSearches } from "@/hooks/useRecentSearch";
-import { searchOptions } from "@/app/page";
-
+const searchOptions = [
+  { label: "CPF/CNPJ", value: "cpf/cnpj" },
+  { label: "Email", value: "email" },
+  { label: "Telefone", value: "telefone" },
+  { label: "Endereço", value: "endereço" },
+  { label: "Nome", value: "nome" },
+];
 const RecentSearchesCard = styled(Card)``;
 
 const Page = () => {

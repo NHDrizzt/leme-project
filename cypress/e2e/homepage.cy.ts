@@ -211,19 +211,14 @@ describe("Search Validation", () => {
         });
       });
 
-      // Test valid inputs
       validInputs.forEach((value) => {
         it(`accepts valid input '${value}'`, () => {
-          // Select search type
           cy.primeReactSelect('[data-cy="search-type"]', name);
 
-          // Enter value
           cy.get('[data-cy="search-input"]').clear().type(value);
 
-          // Submit form
           cy.get('[data-cy="search-button"]').click();
 
-          // Should navigate to results page
           cy.url().should("include", "/results");
           cy.contains("Resultados da Busca").should("be.visible");
         });

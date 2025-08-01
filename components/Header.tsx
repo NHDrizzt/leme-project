@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { Menu } from "primereact/menu";
 import LemeLogo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
   const pathname = usePathname();
-  const menuRef = React.useRef<Menu>(null);
 
   const navItems = [
     { id: "home", label: "Início", path: "/" },
